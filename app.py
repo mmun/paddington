@@ -6,6 +6,7 @@ import webbrowser
 from threading import Timer
 import time
 from collections import deque
+from typing import Optional
 
 from bleak import BleakScanner
 from flask import Flask, render_template, redirect, url_for, jsonify, make_response, request
@@ -48,9 +49,9 @@ def format_seconds_to_hms(total_seconds):
 app = Flask(__name__)
 
 connected = connecting = connection_failed = False
-ble_loop: asyncio.AbstractEventLoop | None = None
-controller: Controller | None = None
-_pad_address: str | None = None
+ble_loop: Optional[asyncio.AbstractEventLoop] = None
+controller: Optional[Controller] = None
+_pad_address: Optional[str] = None
 _auto_pause_grace_until = 0
 speed_history = deque(maxlen=15)
 

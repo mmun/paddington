@@ -2,3 +2,5 @@ flask
 ph4-walkingpad
 waitress
 bleak
+pyobjc-core==10.3.2; platform_system == "Darwin" and python_version < "3.10"
+pyobjc-framework-CoreBluetooth==10.3.2; platform_system == "Darwin" and python_version < "3.10"
