@@ -63,6 +63,10 @@ This application relies heavily on the excellent **`ph4-walkingpad`** Python lib
 * **ph4-walkingpad on PyPI:** [https://pypi.org/project/ph4-walkingpad/](https://pypi.org/project/ph4-walkingpad/)
 * **ph4-walkingpad on GitHub:** (You might want to find and add the GitHub link if you know it)
 
+## Protocol Notes
+
+Reverse-engineering notes for the FTMS, legacy FE00, remote wake, MITM, and planned WebUSB/WebSerial bridge paths live in [docs/protocol.md](docs/protocol.md).
+
 ## Prerequisites
 
 * Python 3.8 or newer.
