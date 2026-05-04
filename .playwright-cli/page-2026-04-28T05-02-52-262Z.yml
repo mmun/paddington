@@ -1,0 +1,91 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - heading "WalkingPad" [level=1] [ref=e5]
+    - generic [ref=e6]:
+      - strong [ref=e8]: Connected
+      - generic [ref=e9]: KS-AP-RF3
+      - generic [ref=e10]: 54:50:A0:10:4E:84
+  - generic [ref=e11]:
+    - complementary "WalkingPad controls" [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - paragraph [ref=e15]: Controls
+          - heading "Main controls" [level=2] [ref=e16]
+        - generic [ref=e17]: 1:02:51 AM
+      - region "Current state" [ref=e18]:
+        - article [ref=e19]:
+          - generic [ref=e20]: Daily steps
+          - strong [ref=e21]: "55"
+          - generic [ref=e22]: stored today
+        - article [ref=e23]:
+          - generic [ref=e24]: Session
+          - strong [ref=e25]: "55"
+          - generic [ref=e26]: 0m active
+        - article [ref=e27]:
+          - generic [ref=e28]: Speed
+          - strong [ref=e29]: 0.0 mph
+          - generic [ref=e30]: 0.0 km/h
+        - article [ref=e31]:
+          - generic [ref=e32]: Step rate
+          - strong [ref=e33]: 0/min
+          - generic [ref=e34]: 0.0 km/h avg
+        - article [ref=e35]:
+          - generic [ref=e36]: Distance
+          - strong [ref=e37]: 0.00 mi
+          - generic [ref=e38]: 0.00 km
+        - article [ref=e39]:
+          - generic [ref=e40]: Active
+          - strong [ref=e41]: 0m
+          - generic [ref=e42]: 0 min today
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - button "Wake" [ref=e45] [cursor=pointer]
+          - button "Connect" [disabled] [ref=e46]
+          - button "Disconnect" [ref=e47] [cursor=pointer]
+        - generic [ref=e48]:
+          - button "Start" [ref=e49] [cursor=pointer]
+          - button "Pause" [ref=e50] [cursor=pointer]
+          - button "Stop" [ref=e51] [cursor=pointer]
+        - generic [ref=e52]:
+          - generic [ref=e53]: Target speed
+          - generic [ref=e54]:
+            - strong [ref=e55]: 4.5 km/h
+            - generic [ref=e56]: 2.8 mph
+          - slider "Target speed" [ref=e57]: "4.5"
+        - generic [ref=e58]:
+          - button "Slower" [ref=e59] [cursor=pointer]
+          - button "Walk" [ref=e60] [cursor=pointer]
+          - button "Max" [ref=e61] [cursor=pointer]
+          - button "Set" [ref=e62] [cursor=pointer]
+    - region "WalkingPad detail views" [ref=e63]:
+      - tablist "Dashboard sections" [ref=e64]:
+        - tab "Live" [ref=e65] [cursor=pointer]
+        - tab "Analytics" [ref=e66] [cursor=pointer]
+        - tab "Settings" [ref=e67] [cursor=pointer]
+        - tab "Logging" [active] [selected] [ref=e68] [cursor=pointer]
+      - tabpanel [ref=e202]:
+        - generic [ref=e203]:
+          - generic [ref=e205]:
+            - paragraph [ref=e206]: Low level
+            - heading "Event stream" [level=2] [ref=e207]
+          - generic [ref=e208]:
+            - list [ref=e209]:
+              - listitem [ref=e210]: 1:02:24 AM Connected to the local WalkingPad service.
+              - listitem [ref=e211]: Dashboard loaded. Waiting for the WalkingPad service.
+            - generic [ref=e212]:
+              - generic [ref=e213]:
+                - generic [ref=e214]: HTTP target
+                - strong [ref=e215]: raspberrypi.local:8788
+              - generic [ref=e216]:
+                - generic [ref=e217]: BLE target
+                - strong [ref=e218]: 54:50:A0:10:4E:84
+              - generic [ref=e219]:
+                - generic [ref=e220]: Wake address
+                - strong [ref=e221]: C1:00:00:00:30:3F
+              - generic [ref=e222]:
+                - generic [ref=e223]: Scanned devices
+                - strong [ref=e224]: "1"
+              - generic [ref=e226]:
+                - strong [ref=e227]: KS-AP-RF3
+                - generic [ref=e228]: 54:50:a0:10:4e:84
+                - generic [ref=e229]: "-73 dBm"

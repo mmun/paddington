@@ -366,8 +366,12 @@ end timestamp:   08 0f e7 69 -> 2026-04-21 01:45:44 local
 Working session identifier:
 
 ```text
-treadmill_serial_or_ble_address + session_start_timestamp
+session_start_timestamp
 ```
+
+The BLE address is useful metadata if multiple pads are tracked later, but the
+server treats the vendor `73` start timestamp as the session identity for this
+single-pad setup.
 
 ### `72` Settings Query And Writes
 
@@ -638,6 +642,9 @@ WebUSB is clean for custom firmware, but WebSerial may be simpler during early d
 
 ## Open Questions
 
+- Use the two-dongle plan in `docs/dongle-debug-todo.md` to capture and replay
+  the full physical remote connectionless protocol once the dongles arrive
+  around 2026-05-03.
 - Decode vendor service `5833ff01-9b8b-5191-6142-22a4536ef123`.
 - Identify the stable `86 92 60 00` value in `71` and `73` frames.
 - Fully explain `72 50` final status/checksum bytes.

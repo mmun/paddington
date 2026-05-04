@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WalkingPad BLE Debugger</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="terminal">
+      <header class="topbar">
+        <strong>WALKINGPAD BLE DEBUG</strong>
+        <span>ADAPTER <b id="adapterState">unknown</b></span>
+        <span>CONN <b id="connectionState">idle</b></span>
+        <span>TARGET <b id="targetLabel">KS-AP-RF3</b></span>
+      </header>
+
+      <section class="toolbar">
+        <label>ADDR <input id="addressInput" value="54:50:A0:10:4E:84" spellcheck="false"></label>
+        <label>NAME <input id="nameInput" value="KS-AP-RF3" spellcheck="false"></label>
+        <button id="connectBtn" class="hot">CONNECT</button>
+        <button id="disconnectBtn">DISC</button>
+        <button id="readAllBtn">READ ALL</button>
+        <button id="shutdownBtn">QUIT</button>
+        <form id="speedForm" class="speed">
+          <label>KMH <input id="speedInput" type="number" min="0" max="6.4" step="0.1" value="1.6"></label>
+          <button class="hot" type="submit">SET SPD</button>
+        </form>
+      </section>
+
+      <section class="command-strip">
+        <section class="command-group">
+          <h3>FTMS</h3>
+          <div id="ftmsControls" class="command-buttons"></div>
+        </section>
+        <div id="vendorControls" class="command-columns"></div>
+      </section>
+
+      <form id="rawWriteForm" class="raw-write">
+        <label>RAW CHAR
+          <select id="rawCharacteristic">
+            <option value="2ad9">2AD9</option>
+            <option value="vendorWrite">VENDOR</option>
+            <option value="vendor2Write">VENDOR2</option>
+          </select>
+        </label>
+        <label>HEX <input id="rawHex" placeholder="72 00 00 00 72" spellcheck="false"></label>
+        <label class="check"><input id="withoutResponse" type="checkbox">NO-RSP</label>
+        <button type="submit">WRITE</button>
+      </form>
+
+      <section class="main-grid">
+        <section class="values-pane">
+          <div class="pane-title">KNOWN VALUES</div>
+          <div class="values-head">
+            <span>ID</span>
+            <span>NAME</span>
+            <span>STATE</span>
+            <span>SRC</span>
+            <span>RAW</span>
+            <span>PARSED</span>
+          </div>
+          <div id="values" class="values"></div>
+        </section>
+
+        <section class="log-pane">
+          <div class="pane-title">EVENT LOG</div>
+          <div id="log" class="log"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="valueTemplate">
+      <article class="value-row">
+        <div class="id"></div>
+        <div class="name"></div>
+        <div class="state"></div>
+        <div class="source"></div>
+        <div class="raw"></div>
+        <pre class="parsed"></pre>
+      </article>
+    </template>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

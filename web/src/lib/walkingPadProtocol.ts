@@ -5,6 +5,13 @@ export const FTMS_SERVICE_UUID = '00001826-0000-1000-8000-00805f9b34fb'
 export const FTMS_TREADMILL_DATA_UUID = '00002acd-0000-1000-8000-00805f9b34fb'
 export const FTMS_CONTROL_POINT_UUID = '00002ad9-0000-1000-8000-00805f9b34fb'
 export const FTMS_STATUS_UUID = '00002ada-0000-1000-8000-00805f9b34fb'
+export const KINGSMITH_VENDOR_SERVICE_UUID = '24e2521c-f63b-48ed-85be-c5330a00fdf7'
+export const KINGSMITH_VENDOR_NOTIFY_UUID = '24e2521c-f63b-48ed-85be-c5330b00fdf7'
+export const KINGSMITH_VENDOR_WRITE_UUID = '24e2521c-f63b-48ed-85be-c5330d00fdf7'
+export const DEFAULT_WALKINGPAD_NAME = 'KS-AP-RF3'
+export const DEFAULT_WALKINGPAD_ADDRESS = '54:50:A0:10:4E:84'
+export const DEFAULT_REMOTE_WAKE_NAME = 'KS-REMOTE-01'
+export const DEFAULT_REMOTE_WAKE_ADDRESS = 'C1:00:00:00:30:3F'
 
 export const KM_TO_MI = 0.621371
 export const KMH_TO_MPH = 0.621371
@@ -36,6 +43,15 @@ export const FtmsControlOpcode = {
 export const FtmsStopPauseCode = {
   Stop: 0x01,
   Pause: 0x02,
+} as const
+
+export const VendorSettingKey = {
+  Units: 0x01,
+  NoLoadStop: 0x02,
+  ChildLock: 0x06,
+  MaxSpeedCandidate: 0x07,
+  BuzzerMarquee: 0x08,
+  Mode: 0x0a,
 } as const
 
 export const FtmsResultCode = {
@@ -81,6 +97,16 @@ export interface FtmsControlResponse {
   resultCode: number
 }
 
+export interface WalkingPadVendorSessionStatus {
+  raw: Uint8Array
+  statusByte: number
+  startedAt: string
+  startedAtMs: number
+  stableValue: number
+  endedAt: string | null
+  endedAtMs: number | null
+}
+
 export type WalkingPadMessage =
   | { kind: 'current-status'; status: WalkingPadCurrentStatus }
   | { kind: 'last-status'; status: WalkingPadLastStatus }
@@ -111,6 +137,15 @@ function readInt16LE(bytes: Uint8Array, offset: number) {
 
 function readUint24LE(bytes: Uint8Array, offset: number) {
   return bytes[offset] | (bytes[offset + 1] << 8) | (bytes[offset + 2] << 16)
+}
+
+function readUint32LE(bytes: Uint8Array, offset: number) {
+  return (
+    (bytes[offset] |
+      (bytes[offset + 1] << 8) |
+      (bytes[offset + 2] << 16) |
+      (bytes[offset + 3] << 24)) >>> 0
+  )
 }
 
 export function fixCrc(command: number[] | Uint8Array): Uint8Array {
@@ -303,6 +338,32 @@ export function parseFtmsMachineStatus(value: DataView | Uint8Array) {
   }
 }
 
+export function parseVendorSessionStatus(value: DataView | Uint8Array): WalkingPadVendorSessionStatus | null {
+  const raw =
+    value instanceof Uint8Array
+      ? new Uint8Array(value)
+      : new Uint8Array(value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength))
+
+  if (raw.length < 17 || raw[0] !== 0x73 || raw[1] !== 0x50 || raw[2] !== 0x0d) {
+    return null
+  }
+
+  const startUnixSeconds = readUint32LE(raw, 4)
+  const endUnixSeconds = readUint32LE(raw, 12)
+  const startedAtMs = startUnixSeconds * 1000
+  const endedAtMs = endUnixSeconds > 0 ? endUnixSeconds * 1000 : null
+
+  return {
+    raw,
+    statusByte: raw[3],
+    startedAt: new Date(startedAtMs).toISOString(),
+    startedAtMs,
+    stableValue: readUint32LE(raw, 8),
+    endedAt: endedAtMs === null ? null : new Date(endedAtMs).toISOString(),
+    endedAtMs,
+  }
+}
+
 export function createFtmsRequestControlCommand() {
   return Uint8Array.of(FtmsControlOpcode.RequestControl)
 }
@@ -315,9 +376,27 @@ export function createFtmsPauseCommand() {
   return Uint8Array.of(FtmsControlOpcode.StopOrPause, FtmsStopPauseCode.Pause)
 }
 
+export function createFtmsStopCommand() {
+  return Uint8Array.of(FtmsControlOpcode.StopOrPause, FtmsStopPauseCode.Stop)
+}
+
 export function createFtmsSetTargetSpeedCommand(speedTenthsKmh: number) {
   const value = speedTenthsKmh * 10
   return Uint8Array.of(FtmsControlOpcode.SetTargetSpeed, value & 0xff, (value >> 8) & 0xff)
+}
+
+export function createVendorQuerySettingsCommand() {
+  return Uint8Array.of(0x72, 0x00, 0x00, 0x00, 0x72)
+}
+
+export function createVendorQuerySessionCommand() {
+  return Uint8Array.of(0x75, 0x00, 0x00, 0x75)
+}
+
+export function createVendorSettingCommand(key: number, value: number) {
+  const command = Uint8Array.of(0x72, 0x01, 0x03, key, value & 0xff, (value >> 8) & 0xff, 0)
+  command[command.length - 1] = command.slice(0, -1).reduce((sum, byte) => (sum + byte) & 0xff, 0)
+  return command
 }
 
 export function ftmsResultCodeToMessage(resultCode: number) {

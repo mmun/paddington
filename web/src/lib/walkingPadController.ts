@@ -1,8 +1,18 @@
-import type { WalkingPadLastStatus, WalkingPadLiveStatus, WalkingPadProtocolType } from './walkingPadProtocol'
 import type {
+  WalkingPadLastStatus,
+  WalkingPadLiveStatus,
+  WalkingPadProtocolType,
+  WalkingPadVendorSessionStatus,
+} from './walkingPadProtocol'
+import type {
+  WalkingPadAnalyticsRange,
+  WalkingPadAnalyticsSummary,
   WalkingPadCommandRequest,
+  WalkingPadDeviceSummary,
+  WalkingPadLiveSnapshot,
   WalkingPadServerEvent,
   WalkingPadServerState,
+  WalkingPadVendorSettingCommand,
 } from './walkingPadApi'
 
 type WalkingPadEvent =
@@ -10,6 +20,9 @@ type WalkingPadEvent =
   | { type: 'disconnected' }
   | { type: 'current-status'; status: WalkingPadLiveStatus }
   | { type: 'last-status'; status: WalkingPadLastStatus }
+  | { type: 'session-status'; session: WalkingPadVendorSessionStatus }
+  | { type: 'devices'; devices: WalkingPadDeviceSummary[] }
+  | { type: 'scanning'; active: boolean }
   | { type: 'error'; error: Error }
   | { type: 'machine-status'; code: number; message: string }
 
@@ -57,6 +70,16 @@ export class WalkingPadController {
     return parseJson<WalkingPadServerState>(response)
   }
 
+  async getLive() {
+    const response = await fetch(`${API_BASE}/live`)
+    return parseJson<WalkingPadLiveSnapshot>(response)
+  }
+
+  async getAnalytics(range: WalkingPadAnalyticsRange) {
+    const response = await fetch(`${API_BASE}/analytics?range=${encodeURIComponent(range)}`)
+    return parseJson<WalkingPadAnalyticsSummary>(response)
+  }
+
   async connect(deviceId?: string) {
     await this.post('/connect', deviceId ? { deviceId } : {})
   }
@@ -73,8 +96,20 @@ export class WalkingPadController {
     await this.runCommand({ type: 'set-speed', speedTenthsKmh })
   }
 
+  async requestControl() {
+    await this.runCommand({ type: 'request-control' })
+  }
+
   async stopBelt() {
+    await this.runCommand({ type: 'pause' })
+  }
+
+  async endSession() {
     await this.runCommand({ type: 'stop' })
+  }
+
+  async wake() {
+    await this.runCommand({ type: 'wake' })
   }
 
   async startBelt() {
@@ -87,6 +122,18 @@ export class WalkingPadController {
 
   async resumeAt(speedTenthsKmh: number) {
     await this.runCommand({ type: 'resume', speedTenthsKmh })
+  }
+
+  async querySettings() {
+    await this.runCommand({ type: 'query-settings' })
+  }
+
+  async querySession() {
+    await this.runCommand({ type: 'query-session' })
+  }
+
+  async setVendorSetting(command: WalkingPadVendorSettingCommand) {
+    await this.runCommand({ type: 'vendor-setting', command })
   }
 
   private emit(event: WalkingPadEvent) {
@@ -155,7 +202,22 @@ export class WalkingPadController {
         return
       }
 
+      if (event.type === 'session-status') {
+        this.emit(event)
+        return
+      }
+
       if (event.type === 'machine-status') {
+        this.emit(event)
+        return
+      }
+
+      if (event.type === 'devices') {
+        this.emit(event)
+        return
+      }
+
+      if (event.type === 'scanning') {
         this.emit(event)
         return
       }

@@ -1,0 +1,103 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - heading "WalkingPad" [level=1] [ref=e5]
+    - generic [ref=e6]:
+      - strong [ref=e8]: Disconnected
+      - generic [ref=e9]: KS-AP-RF3
+      - generic [ref=e10]: 54:50:A0:10:4E:84
+  - generic [ref=e11]:
+    - complementary "WalkingPad controls" [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - paragraph [ref=e15]: Controls
+          - heading "Main controls" [level=2] [ref=e16]
+        - generic [ref=e17]: No telemetry
+      - region "Current state" [ref=e18]:
+        - article [ref=e19]:
+          - generic [ref=e20]: Daily steps
+          - strong [ref=e21]: "0"
+          - generic [ref=e22]: stored today
+        - article [ref=e23]:
+          - generic [ref=e24]: Session
+          - strong [ref=e25]: "0"
+          - generic [ref=e26]: no open session
+        - article [ref=e27]:
+          - generic [ref=e28]: Speed
+          - strong [ref=e29]: 0.0 mph
+          - generic [ref=e30]: 0.0 km/h
+        - article [ref=e31]:
+          - generic [ref=e32]: Step rate
+          - strong [ref=e33]: 0/min
+          - generic [ref=e34]: 0.0 km/h avg
+        - article [ref=e35]:
+          - generic [ref=e36]: Distance
+          - strong [ref=e37]: 0.00 mi
+          - generic [ref=e38]: 0.00 km
+        - article [ref=e39]:
+          - generic [ref=e40]: Active
+          - strong [ref=e41]: 0m
+          - generic [ref=e42]: 0 min today
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - button "Wake" [ref=e45] [cursor=pointer]
+          - button "Connect" [ref=e46] [cursor=pointer]
+          - button "Disconnect" [disabled] [ref=e47]
+        - generic [ref=e48]:
+          - button "Start" [disabled] [ref=e49]
+          - button "Pause" [disabled] [ref=e50]
+          - button "Stop" [disabled] [ref=e51]
+        - generic [ref=e52]:
+          - generic [ref=e53]: Target speed
+          - generic [ref=e54]:
+            - strong [ref=e55]: 4.5 km/h
+            - generic [ref=e56]: 2.8 mph
+          - slider "Target speed" [ref=e57]: "4.5"
+        - generic [ref=e58]:
+          - button "Slower" [disabled] [ref=e59]
+          - button "Walk" [disabled] [ref=e60]
+          - button "Max" [disabled] [ref=e61]
+          - button "Set" [disabled] [ref=e62]
+    - region "WalkingPad detail views" [ref=e63]:
+      - tablist "Dashboard sections" [ref=e64]:
+        - tab "Live" [selected] [ref=e65] [cursor=pointer]
+        - tab "Analytics" [ref=e66] [cursor=pointer]
+        - tab "Settings" [ref=e67] [cursor=pointer]
+        - tab "Logging" [ref=e68] [cursor=pointer]
+      - tabpanel [ref=e70]:
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - generic [ref=e73]:
+              - paragraph [ref=e74]: Live effort
+              - heading "Step rate and speed" [level=2] [ref=e75]
+            - generic [ref=e76]: No telemetry yet
+          - generic [ref=e77]:
+            - generic [ref=e78]:
+              - strong [ref=e79]: 0 steps/min
+              - generic [ref=e80]: 0.0 km/h
+            - img "Live step rate and speed chart" [ref=e81]
+            - generic [ref=e82]:
+              - generic [ref=e83]: Step derivative
+              - generic [ref=e84]: Speed
+        - generic [ref=e85]:
+          - generic [ref=e87]:
+            - paragraph [ref=e88]: State
+            - heading "Current snapshot" [level=2] [ref=e89]
+          - generic [ref=e90]:
+            - generic [ref=e91]:
+              - generic [ref=e92]: Connection
+              - strong [ref=e93]: Disconnected
+            - generic [ref=e94]:
+              - generic [ref=e95]: Protocol
+              - strong [ref=e96]: None
+            - generic [ref=e97]:
+              - generic [ref=e98]: Scanner
+              - strong [ref=e99]: Idle
+            - generic [ref=e100]:
+              - generic [ref=e101]: Target
+              - strong [ref=e102]: KS-AP-RF3
+            - generic [ref=e103]:
+              - generic [ref=e104]: Session start
+              - strong [ref=e105]: None
+            - generic [ref=e106]:
+              - generic [ref=e107]: Session source
+              - strong [ref=e108]: None

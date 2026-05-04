@@ -1,0 +1,162 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - paragraph [ref=e6]: Always-on Raspberry Pi tracker
+      - heading "WalkingPad" [level=1] [ref=e7]
+    - generic [ref=e8]:
+      - strong [ref=e10]: Disconnected
+      - generic [ref=e11]: KS-AP-RF3
+      - generic [ref=e12]: 54:50:A0:10:4E:84
+  - region "Live treadmill metrics" [ref=e13]:
+    - article [ref=e14]:
+      - generic [ref=e15]: Daily steps
+      - strong [ref=e16]: "0"
+      - generic [ref=e17]: latest stored total
+    - article [ref=e18]:
+      - generic [ref=e19]: Session steps
+      - strong [ref=e20]: "0"
+      - generic [ref=e21]: no open session
+    - article [ref=e22]:
+      - generic [ref=e23]: Speed
+      - strong [ref=e24]: 0.0 mph
+      - generic [ref=e25]: 0.0 km/h
+    - article [ref=e26]:
+      - generic [ref=e27]: 30s avg
+      - strong [ref=e28]: 0.0 km/h
+      - generic [ref=e29]: 0 steps/min
+    - article [ref=e30]:
+      - generic [ref=e31]: Distance today
+      - strong [ref=e32]: 0.00 mi
+      - generic [ref=e33]: 0.00 km
+    - article [ref=e34]:
+      - generic [ref=e35]: Active today
+      - strong [ref=e36]: 0m
+      - generic [ref=e37]: 0 active min
+  - generic [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - paragraph [ref=e42]: Controls
+          - heading "Pad command rail" [level=2] [ref=e43]
+        - generic [ref=e44]: No telemetry yet
+      - generic [ref=e45]:
+        - button "Wake" [ref=e46] [cursor=pointer]
+        - button "Connect" [ref=e47] [cursor=pointer]
+        - button "Disconnect" [disabled] [ref=e48]
+      - generic [ref=e49]:
+        - button "Start" [disabled] [ref=e50]
+        - button "Pause" [disabled] [ref=e51]
+        - button "Stop" [disabled] [ref=e52]
+      - generic [ref=e53]:
+        - generic [ref=e54]: Target speed
+        - generic [ref=e55]:
+          - strong [ref=e56]: 4.5 km/h
+          - generic [ref=e57]: 2.8 mph
+        - slider "Target speed" [ref=e58]: "4.5"
+      - generic [ref=e59]:
+        - button "Slower" [disabled] [ref=e60]
+        - button "Slow walk" [disabled] [ref=e61]
+        - button "Max" [disabled] [ref=e62]
+        - button "Set speed" [disabled] [ref=e63]
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - paragraph [ref=e67]: Live effort
+          - heading "Step rate and speed" [level=2] [ref=e68]
+        - generic [ref=e69]: No telemetry yet
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - strong [ref=e72]: 0 steps/min
+          - generic [ref=e73]: 0.0 km/h
+        - img "Live step rate and speed chart" [ref=e74]
+        - generic [ref=e75]:
+          - generic [ref=e76]: Step derivative
+          - generic [ref=e77]: Speed
+    - generic [ref=e78]:
+      - generic [ref=e80]:
+        - paragraph [ref=e81]: Summary
+        - heading "Today" [level=2] [ref=e82]
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]: Steps
+          - strong [ref=e86]: "0"
+        - generic [ref=e87]:
+          - generic [ref=e88]: Distance
+          - strong [ref=e89]: 0.00 mi
+        - generic [ref=e90]:
+          - generic [ref=e91]: Active time
+          - strong [ref=e92]: 0m
+        - generic [ref=e93]:
+          - generic [ref=e94]: Average pace
+          - strong [ref=e95]: 0.0 km/h
+        - generic [ref=e96]:
+          - generic [ref=e97]: Steps per active min
+          - strong [ref=e98]: "0"
+        - generic [ref=e99]:
+          - generic [ref=e100]: Breaks
+          - strong [ref=e101]: "0"
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - generic [ref=e104]:
+          - paragraph [ref=e105]: Analytics
+          - heading "Training history" [level=2] [ref=e106]
+        - tablist "Analytics range" [ref=e107]:
+          - tab "Today" [selected] [ref=e108] [cursor=pointer]
+          - tab "7 days" [ref=e109] [cursor=pointer]
+          - tab "30 days" [ref=e110] [cursor=pointer]
+          - tab "90 days" [ref=e111] [cursor=pointer]
+          - tab "Year" [ref=e112] [cursor=pointer]
+          - tab "All" [ref=e113] [cursor=pointer]
+      - generic [ref=e114]:
+        - article [ref=e115]:
+          - generic [ref=e116]:
+            - heading "Steps" [level=3] [ref=e117]
+            - generic [ref=e118]: No data yet
+          - img "Steps chart" [ref=e119]
+        - article [ref=e120]:
+          - generic [ref=e121]:
+            - heading "Active minutes" [level=3] [ref=e122]
+            - generic [ref=e123]: No data yet
+          - img "Active minutes chart" [ref=e124]
+    - generic [ref=e125]:
+      - generic [ref=e127]:
+        - paragraph [ref=e128]: Settings
+        - heading "WalkingPad options" [level=2] [ref=e129]
+      - generic [ref=e130]:
+        - heading "Units" [level=3] [ref=e131]
+        - generic [ref=e132]:
+          - button "Metric" [disabled] [ref=e133]
+          - button "Imperial" [disabled] [ref=e134]
+      - generic [ref=e135]:
+        - heading "No-load stop" [level=3] [ref=e136]
+        - generic [ref=e137]:
+          - button "Off" [disabled] [ref=e138]
+          - button "5s" [disabled] [ref=e139]
+          - button "15s" [disabled] [ref=e140]
+          - button "30s" [disabled] [ref=e141]
+          - button "45s" [disabled] [ref=e142]
+          - button "60s" [disabled] [ref=e143]
+      - generic [ref=e144]:
+        - heading "Device behavior" [level=3] [ref=e145]
+        - generic [ref=e146]:
+          - button "Buzzer on" [disabled] [ref=e147]
+          - button "Buzzer off" [disabled] [ref=e148]
+          - button "Marquee on" [disabled] [ref=e149]
+          - button "Marquee off" [disabled] [ref=e150]
+          - button "Lock on" [disabled] [ref=e151]
+          - button "Lock off" [disabled] [ref=e152]
+      - generic [ref=e153]:
+        - heading "Mode" [level=3] [ref=e154]
+        - generic [ref=e155]:
+          - button "Manual" [disabled] [ref=e156]
+          - button "Auto" [disabled] [ref=e157]
+          - button "Sleep" [disabled] [ref=e158]
+      - generic:
+        - button "Query settings" [disabled] [ref=e159]
+        - button "Query session" [disabled] [ref=e160]
+    - generic [ref=e161]:
+      - generic [ref=e163]:
+        - paragraph [ref=e164]: Events
+        - heading "Recent activity" [level=2] [ref=e165]
+      - list [ref=e166]:
+        - listitem [ref=e167]: Dashboard loaded. Waiting for the WalkingPad service.

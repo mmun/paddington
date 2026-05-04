@@ -1,0 +1,25 @@
+[Unit]
+Description=WalkingPad web dashboard and BLE tracker
+After=network-online.target bluetooth.service
+Wants=network-online.target bluetooth.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/walkingpad/web
+StateDirectory=walkingpad
+Environment=WALKINGPAD_SERVER_HOST=0.0.0.0
+Environment=WALKINGPAD_SERVER_PORT=8788
+Environment=WALKINGPAD_ADDRESS=54:50:A0:10:4E:84
+Environment=WALKINGPAD_NAME=KS-AP-RF3
+Environment=WALKINGPAD_AUTO_CONNECT=1
+Environment=WALKINGPAD_AUTO_SCAN_MS=10000
+Environment=WALKINGPAD_AUTO_RETRY_MS=0
+Environment=WALKINGPAD_STALE_LINK_MS=45000
+Environment=WALKINGPAD_DB_PATH=/var/lib/walkingpad/walkingpad.sqlite
+Environment=WALKINGPAD_WAKE_ADDRESS=C1:00:00:00:30:3F
+ExecStart=/usr/bin/npm run serve
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

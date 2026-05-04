@@ -1,0 +1,113 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - heading "WalkingPad" [level=1] [ref=e5]
+    - generic [ref=e6]:
+      - strong [ref=e8]: Connected
+      - generic [ref=e9]: KS-AP-RF3
+      - generic [ref=e10]: 54:50:A0:10:4E:84
+  - generic [ref=e11]:
+    - complementary "WalkingPad controls" [ref=e12]:
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - paragraph [ref=e15]: Controls
+          - heading "Main controls" [level=2] [ref=e16]
+        - generic [ref=e17]: 1:02:45 AM
+      - region "Current state" [ref=e18]:
+        - article [ref=e19]:
+          - generic [ref=e20]: Daily steps
+          - strong [ref=e21]: "55"
+          - generic [ref=e22]: stored today
+        - article [ref=e23]:
+          - generic [ref=e24]: Session
+          - strong [ref=e25]: "55"
+          - generic [ref=e26]: 0m active
+        - article [ref=e27]:
+          - generic [ref=e28]: Speed
+          - strong [ref=e29]: 0.0 mph
+          - generic [ref=e30]: 0.0 km/h
+        - article [ref=e31]:
+          - generic [ref=e32]: Step rate
+          - strong [ref=e33]: 0/min
+          - generic [ref=e34]: 0.0 km/h avg
+        - article [ref=e35]:
+          - generic [ref=e36]: Distance
+          - strong [ref=e37]: 0.00 mi
+          - generic [ref=e38]: 0.00 km
+        - article [ref=e39]:
+          - generic [ref=e40]: Active
+          - strong [ref=e41]: 0m
+          - generic [ref=e42]: 0 min today
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - button "Wake" [ref=e45] [cursor=pointer]
+          - button "Connect" [disabled] [ref=e46]
+          - button "Disconnect" [ref=e47] [cursor=pointer]
+        - generic [ref=e48]:
+          - button "Start" [ref=e49] [cursor=pointer]
+          - button "Pause" [ref=e50] [cursor=pointer]
+          - button "Stop" [ref=e51] [cursor=pointer]
+        - generic [ref=e52]:
+          - generic [ref=e53]: Target speed
+          - generic [ref=e54]:
+            - strong [ref=e55]: 4.5 km/h
+            - generic [ref=e56]: 2.8 mph
+          - slider "Target speed" [ref=e57]: "4.5"
+        - generic [ref=e58]:
+          - button "Slower" [ref=e59] [cursor=pointer]
+          - button "Walk" [ref=e60] [cursor=pointer]
+          - button "Max" [ref=e61] [cursor=pointer]
+          - button "Set" [ref=e62] [cursor=pointer]
+    - region "WalkingPad detail views" [ref=e63]:
+      - tablist "Dashboard sections" [ref=e64]:
+        - tab "Live" [ref=e65] [cursor=pointer]
+        - tab "Analytics" [active] [selected] [ref=e66] [cursor=pointer]
+        - tab "Settings" [ref=e67] [cursor=pointer]
+        - tab "Logging" [ref=e68] [cursor=pointer]
+      - tabpanel [ref=e113]:
+        - generic [ref=e114]:
+          - generic [ref=e115]:
+            - generic [ref=e116]:
+              - paragraph [ref=e117]: Analytics
+              - heading "Training history" [level=2] [ref=e118]
+            - tablist "Analytics range" [ref=e119]:
+              - tab "Today" [selected] [ref=e120] [cursor=pointer]
+              - tab "7 days" [ref=e121] [cursor=pointer]
+              - tab "30 days" [ref=e122] [cursor=pointer]
+              - tab "90 days" [ref=e123] [cursor=pointer]
+              - tab "Year" [ref=e124] [cursor=pointer]
+              - tab "All" [ref=e125] [cursor=pointer]
+          - generic [ref=e126]:
+            - generic [ref=e127]:
+              - generic [ref=e128]:
+                - generic [ref=e129]: Today
+                - strong [ref=e130]: "55"
+              - generic [ref=e131]:
+                - generic [ref=e132]: Distance
+                - strong [ref=e133]: 0.00 mi
+              - generic [ref=e134]:
+                - generic [ref=e135]: Active
+                - strong [ref=e136]: 0m
+              - generic [ref=e137]:
+                - generic [ref=e138]: Avg speed
+                - strong [ref=e139]: 1.4 km/h
+              - generic [ref=e140]:
+                - generic [ref=e141]: Steps/min
+                - strong [ref=e142]: "275"
+              - generic [ref=e143]:
+                - generic [ref=e144]: Breaks
+                - strong [ref=e145]: "0"
+            - generic [ref=e146]:
+              - article [ref=e147]:
+                - generic [ref=e148]:
+                  - heading "Steps" [level=3] [ref=e149]
+                  - generic [ref=e150]: 0 steps latest
+                - img "Steps chart" [ref=e151]:
+                  - 'generic "2026-04-28 00:00: 55 steps" [ref=e153]'
+                  - 'generic "2026-04-28 01:00: 0 steps" [ref=e154]'
+              - article [ref=e155]:
+                - generic [ref=e156]:
+                  - heading "Active minutes" [level=3] [ref=e157]
+                  - generic [ref=e158]: 0 min latest
+                - img "Active minutes chart" [ref=e159]:
+                  - 'generic "2026-04-28 00:00: 0.2 min" [ref=e161]'
+                  - 'generic "2026-04-28 01:00: 0 min" [ref=e162]'

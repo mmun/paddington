@@ -1,0 +1,12 @@
+[Unit]
+Description=WalkingPad remote wake advertisement replay
+After=bluetooth.service
+Wants=bluetooth.service
+
+[Service]
+Type=oneshot
+Environment=WALKINGPAD_TRACKER_SERVICE=walkingpad.service
+Environment=WALKINGPAD_REMOTE_ADDRESS=C1:00:00:00:30:3F
+Environment=WALKINGPAD_REMOTE_NAME=KS-REMOTE-01
+Environment=WALKINGPAD_WAKE_SECONDS=10
+ExecStart=/usr/local/bin/walkingpad-wake

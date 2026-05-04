@@ -1,0 +1,22 @@
+{
+  "name": "walkingpad-ble-debugger",
+  "version": "0.1.0",
+  "private": true,
+  "description": "BLE design/debugging interface for WalkingPad FTMS and KingSmith vendor protocol.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "NODE_ENV=development node src/server.js",
+    "pi": "bash scripts/pi-restart.sh",
+    "deploy:pi": "bash scripts/pi-restart.sh",
+    "check": "node --check src/server.js && node --check src/protocol.js && node --check src/walkingpad-ble.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "node-ble": "^1.13.0",
+    "ws": "^8.20.0"
+  },
+  "overrides": {
+    "xml2js": "^0.6.2"
+  }
+}
